@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+require_relative 'lib/alpha_num_to_morse'
+
+def encode_file(input_file)
+  File.read(input_file).each_line do |line|
+    puts AlphaNumToMorse.new(line.chomp)
+  end
+end
+
+def encode_message(message)
+  message.split("\n").each do |line|
+    puts AlphaNumToMorse.new(line.chomp)
+  end
+end
+
+def banner
+  <<~HEREDOC
+    Usage: ruby run.rb -f example/message.txt
+    or ruby run.rb -m "Help"
+  HEREDOC
+end
+
+require 'optparse'
+
+input_file = nil
+input_message = nil
+
+OptionParser.new do |opts|
+  opts.banner = banner
+
+  opts.on(
+    '-f',
+    '--file PATH'
+  ) { |f| input_file = f }
+
+  opts.on(
+    '-m',
+    '--message PATH'
+  ) { |m| input_message = m }
+end.parse!
+
+if input_file.nil? && input_message.nil?
+  raise OptionParser::MissingArgument, 'message file -f (file), -m (message) -h (help)'
+end
+
+encode_file(input_file) if input_file
+encode_message(input_message) if input_message
