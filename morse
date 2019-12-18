@@ -3,6 +3,6 @@
 file_name="morse_code_output.txt"
 echo "- Writing to $file_name"
 
-./run "$@" > $file_name
+./code "$@" | ./obfuscate > $file_name
 
 cat $file_name

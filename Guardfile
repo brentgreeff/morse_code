@@ -13,7 +13,6 @@ guard :rspec, cmd: "bundle exec rspec" do
   ruby = dsl.ruby
   dsl.watch_spec_files_for(ruby.lib_files)
 
-  watch('run') do |m|
-    "spec/run_spec.rb"
-  end
+  watch('code') { "spec/code_spec.rb" }
+  watch('obfuscate') { "spec/obfuscate_spec.rb" }
 end

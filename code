@@ -4,7 +4,7 @@ require_relative 'lib/alpha_num_to_morse'
 def encode_file(input_file)
   file = File.read(input_file)
   if file.empty?
-    STDERR.puts "File is empty"
+    $stderr.puts "Input file is empty"
     exit(1)
   end
 
