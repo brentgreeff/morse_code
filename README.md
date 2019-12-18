@@ -19,5 +19,6 @@ press [enter] to run all specs.
 
 ## Run the script
 
-- ./run -f example/message.txt
-- ./run -m $'HELLO\nI AM IN TROUBLE'
+### Output to file
+- ./morse -f example/message.txt
+- ./morse -m $'HELLO\nI AM IN TROUBLE'

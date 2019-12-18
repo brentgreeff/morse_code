@@ -21,8 +21,8 @@ end
 
 def banner
   <<~HEREDOC
-    Usage: ./run -f example/message.txt
-    or ./run -m $'HE\\nLP'
+    Usage: ./morse -f example/message.txt
+    or ./morse -m $'HE\\nLP'
   HEREDOC
 end
 
