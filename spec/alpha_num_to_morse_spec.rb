@@ -36,12 +36,4 @@ RSpec.describe AlphaNumToMorse do
       expect( encode ).to eq '../.-|--'
     end
   end
-
-  xcontext 'When input contains an invalid character' do
-    let(:input) { 'X!X!' }
-
-    it 'ignores them' do
-      expect( encode ).to eq '-..-|-..-'
-    end
-  end
 end

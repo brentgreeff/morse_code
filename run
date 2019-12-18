@@ -2,7 +2,13 @@
 require_relative 'lib/alpha_num_to_morse'
 
 def encode_file(input_file)
-  File.read(input_file).each_line do |line|
+  file = File.read(input_file)
+  if file.empty?
+    STDERR.puts "File is empty"
+    exit(1)
+  end
+
+  file.each_line do |line|
     puts AlphaNumToMorse.new(line.chomp)
   end
 end
@@ -15,8 +21,8 @@ end
 
 def banner
   <<~HEREDOC
-    Usage: ruby run.rb -f example/message.txt
-    or ruby run.rb -m "Help"
+    Usage: ./run -f example/message.txt
+    or ./run -m $'HE\\nLP'
   HEREDOC
 end
 

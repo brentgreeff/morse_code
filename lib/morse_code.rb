@@ -8,5 +8,9 @@ class MorseCode
     def from_char(char)
       @mapping[char]
     end
+
+    def valid_input
+      @mapping.keys << ' '
+    end
   end
 end
